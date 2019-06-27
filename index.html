@@ -1,0 +1,80 @@
+  <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+     <style>
+   
+    #radioBtn .notActive{
+        color: #3276b1;
+        background-color: #fff;
+    }
+
+
+  </style>
+   <script>
+
+  $('#radioBtn a').on('click', function(){
+    var sel = $(this).data('title');
+    var tog = $(this).data('toggle');
+    $('#'+tog).prop('value', sel);
+    
+    $('a[data-toggle="'+tog+'"]').not('[data-title="'+sel+'"]').removeClass('active').addClass('notActive');
+    $('a[data-toggle="'+tog+'"][data-title="'+sel+'"]').removeClass('notActive').addClass('active');
+})
+  
+  </script>
+    <body>
+        <form>
+        <div class="container">
+    <div class="row">
+		<h2>Use buttons to simulate radio buttons</h2>
+        
+        <div class="form-group">
+    		<label for="happy" class="col-sm-4 col-md-4 control-label text-right">Are you happy ?</label>
+    		<div class="col-sm-7 col-md-7">
+    			<div class="input-group">
+    				<div id="radioBtn" class="btn-group">
+    					<a class="btn btn-primary btn-sm active" data-toggle="happy" data-title="Y">YES</a>
+    					<a class="btn btn-primary btn-sm notActive" data-toggle="happy" data-title="N">NO</a>
+    				</div>
+    				<input type="hidden" name="happy" id="happy">
+    			</div>
+    		</div>
+    	</div>
+        <br /><br />
+        <div class="form-group">
+        	<label for="fun" class="col-sm-4 col-md-4 control-label text-right">Is it fun ?</label>
+    		<div class="col-sm-7 col-md-7">
+    			<div class="input-group">
+    				<div id="radioBtn" class="btn-group">
+    					<a class="btn btn-primary btn-sm active" data-toggle="fun" data-title="Y">YES</a>
+                        <a class="btn btn-primary btn-sm notActive" data-toggle="fun" data-title="X">I don't know</a>
+    					<a class="btn btn-primary btn-sm notActive" data-toggle="fun" data-title="N">NO</a>
+    				</div>
+    				<input type="hidden" name="fun" id="fun">
+    			</div>
+    		</div>
+    	</div>
+	</div>
+    <br /><br />
+    <div class="row">
+        <div class="panel panel-info">
+            <div class="panel-heading"><h2 class="panel-title">How to use</h2></div>
+            <div class="panel-body">
+                You can use this snippet with a normal form and get the returns value using the hidden input.
+            </div>
+        </div>
+        
+    </div>
+</div>
+        </form>
+    </body>
+</html>
+
